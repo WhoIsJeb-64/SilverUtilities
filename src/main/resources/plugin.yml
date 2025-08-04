@@ -12,6 +12,7 @@ commands:
     permission: silverutilities.fakeop
   staffchat:
     description: Sends messages to the staff chat, or toggles it.
+    aliases: [stch, sc]
     permission: silverutilities.staffchat.use
   discord:
     description: Provides the link to the server's discord.

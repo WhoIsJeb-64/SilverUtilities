@@ -1,6 +1,7 @@
 package com.flashbackmc.silverutilities;
 
 import com.flashbackmc.silverutilities.commands.*;
+import com.flashbackmc.silverutilities.listeners.PlayerChatListener;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -12,11 +13,14 @@ public class SilverUtilities extends JavaPlugin {
     private Logger log;
     private final File configFile = new File(getDataFolder(), "config.yml");
     private FileConfiguration config = YamlConfiguration.loadConfiguration(configFile);
+    private StaffChatHandler staffChatHandler;
 
     @Override
     public void onEnable() {
         plugin = this;
         log = this.getServer().getLogger();
+        staffChatHandler = new StaffChatHandler();
+        staffChatHandler.initializeToggleCache();
 
         if (!configFile.exists()) {
             saveResource("config.yml", false);
@@ -37,19 +41,16 @@ public class SilverUtilities extends JavaPlugin {
     private void registerCommands() {
         getCommand("tellraw").setExecutor(new TellRawCommand(this));
         getCommand("fakeop").setExecutor(new FakeOpCommand(this));
+        getCommand("staffchat").setExecutor(new StaffChatCommand(this, staffChatHandler));
         getCommand("discord").setExecutor(new DiscordCommand(this));
         getCommand("colorcodes").setExecutor(new ColorCodesCommand(this));
     }
 
     private void registerListeners() {
-        //
+        getServer().getPluginManager().registerEvents(new PlayerChatListener(this, staffChatHandler), this);
     }
 
     public FileConfiguration getConfig() {
         return config;
-    }
-
-    public File getConfigFile() {
-        return configFile;
     }
 }

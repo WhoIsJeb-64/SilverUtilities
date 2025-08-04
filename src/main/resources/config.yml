@@ -2,5 +2,13 @@
 #    Siliver-Utilities Configuration    #
 #########################################
 
+settings:
+  staffchat: # Format: tag + prefix + name + delimiter + color + message
+    tag: "&7[StaffChat] "  # Set to "" to practically disable.
+    delimiter: "&7 » "     # Set to "&f: " for a vanilla-style one.
+    color: "WHITE"         # Set to "WHITE" to practically disable.
+    user-prefixes:
+      WhoIsJeb: "&4"
+
 messages:
   discord: "&9discord.gg/link"
