@@ -10,13 +10,16 @@ commands:
   fakeop:
     description: Totally ops player!
     permission: silverutilities.fakeop
+  staffchat:
+    description: Sends messages to the staff chat, or toggles it.
+    permission: silverutilities.staffchat.use
   discord:
     description: Provides the link to the server's discord.
     permission: silverutilities.discord
   colorcodes:
     description: Provides the link to the server's discord.
     aliases: [colourcodes, colors, colours]
-    permission: silverutilities.discord
+    permission: silverutilities.colorcodes
 permissions:
   silverutilities.player:
     description: Grants access to the plugin's basic commands.
@@ -35,6 +38,8 @@ permissions:
     description: Grants access to /fakeop.
   silverutilities.discord:
     description: Grants access to /discord.
+  silverutilities.colorcodes:
+    description: Grants access to /colorcodes.
   silverutilities.staffchat.use:
     description: Grants access to /staffchat.
   silverutilities.staffchat.read:
