@@ -1,0 +1,26 @@
+name: SilverUtilities
+main: com.flashbackmc.silverutilities.SilverUtilities
+author: WhoIsJeb
+version: 1.0-SNAPSHOT
+commands:
+  tellraw:
+    description: Broadcasts exactly what is input.
+    aliases: [tellr, tr]
+    permission: silverutilities.tellraw
+  fakeop:
+    description: Totally ops player!
+    permission: silverutilities.fakeop
+  discord:
+    description: Provides the link to the server's discord.
+    permission: silverutilities.discord
+permissions:
+  silverutilities.player:
+    description: Grants access to the plugin's basic commands.
+    children:
+      silverutilities.discord: true
+  silverutilities.tellraw:
+    description: Grants access to /tellraw.
+  silverutilities.fakeop:
+    description: Grants access to /fakeop.
+  silverutilities.discord:
+    description: Grants access to /discord.
