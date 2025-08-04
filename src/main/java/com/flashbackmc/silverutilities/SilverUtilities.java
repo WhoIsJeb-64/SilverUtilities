@@ -20,24 +20,25 @@ public class SilverUtilities extends JavaPlugin {
 
         if (!configFile.exists()) {
             saveResource("config.yml", false);
-            log.info("Created SilverUtilities config!");
+            log.info("Se ha creado la configuraciōn de SilverUtilities!");
         }
         config = YamlConfiguration.loadConfiguration(getResource("config.yml"));
         registerCommands();
         registerListeners();
 
-        log.info("SilverUtilities has loaded!");
+        log.info("Se ha cargado SilverUtilities!");
     }
 
     @Override
     public void onDisable() {
-        log.info("SilverUtilities has unloaded!");
+        log.info("Se ha descargado SilverUtilities!");
     }
 
     private void registerCommands() {
         getCommand("tellraw").setExecutor(new TellRawCommand(this));
         getCommand("fakeop").setExecutor(new FakeOpCommand(this));
         getCommand("discord").setExecutor(new DiscordCommand(this));
+        getCommand("colorcodes").setExecutor(new ColorCodesCommand(this));
     }
 
     private void registerListeners() {

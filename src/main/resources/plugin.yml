@@ -13,14 +13,29 @@ commands:
   discord:
     description: Provides the link to the server's discord.
     permission: silverutilities.discord
+  colorcodes:
+    description: Provides the link to the server's discord.
+    aliases: [colourcodes, colors, colours]
+    permission: silverutilities.discord
 permissions:
   silverutilities.player:
     description: Grants access to the plugin's basic commands.
     children:
       silverutilities.discord: true
+  silverutilities.staff:
+    description: Grants access to the plugin's staff commands.
+    children:
+      silverutilities.tellraw: true
+      silverutilities.fakeop: true
+      silverutilities.staffchat.read: true
+      silverutilities.staffchat.use: true
   silverutilities.tellraw:
     description: Grants access to /tellraw.
   silverutilities.fakeop:
     description: Grants access to /fakeop.
   silverutilities.discord:
     description: Grants access to /discord.
+  silverutilities.staffchat.use:
+    description: Grants access to /staffchat.
+  silverutilities.staffchat.read:
+    description: Grants the ability to read staff chat.
