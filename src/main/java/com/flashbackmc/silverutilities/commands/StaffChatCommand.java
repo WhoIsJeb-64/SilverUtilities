@@ -21,6 +21,7 @@ public class StaffChatCommand implements CommandExecutor {
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (strings.length == 0) {
             handler.toggleStaffChat((Player) commandSender);
+            return true;
         }
         String message = handler.buildMessage(plugin.getConfig(), commandSender, strings);
 

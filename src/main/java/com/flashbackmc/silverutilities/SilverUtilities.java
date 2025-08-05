@@ -6,19 +6,22 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 import java.io.File;
+import java.io.IOException;
 import java.util.logging.Logger;
 
 public class SilverUtilities extends JavaPlugin {
     private JavaPlugin plugin;
     private Logger log;
-    private final File configFile = new File(getDataFolder(), "config.yml");
-    private FileConfiguration config = YamlConfiguration.loadConfiguration(configFile);
+    private File configFile;
+    private FileConfiguration config;
     private StaffChatHandler staffChatHandler;
 
     @Override
     public void onEnable() {
         plugin = this;
         log = this.getServer().getLogger();
+        configFile = new File(getDataFolder(), "config.yml");
+        config = YamlConfiguration.loadConfiguration(configFile);
         staffChatHandler = new StaffChatHandler();
         staffChatHandler.initializeToggleCache();
 
@@ -26,7 +29,6 @@ public class SilverUtilities extends JavaPlugin {
             saveResource("config.yml", false);
             log.info("Se ha creado la configuraciōn de SilverUtilities!");
         }
-        config = YamlConfiguration.loadConfiguration(getResource("config.yml"));
         registerCommands();
         registerListeners();
 
@@ -36,6 +38,10 @@ public class SilverUtilities extends JavaPlugin {
     @Override
     public void onDisable() {
         log.info("Se ha descargado SilverUtilities!");
+    }
+
+    private void saveNewConfig() throws IOException {
+        config.save(configFile);
     }
 
     private void registerCommands() {
