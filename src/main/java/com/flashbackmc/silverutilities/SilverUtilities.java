@@ -6,7 +6,6 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 import java.io.File;
-import java.io.IOException;
 import java.util.logging.Logger;
 
 public class SilverUtilities extends JavaPlugin {
@@ -38,10 +37,6 @@ public class SilverUtilities extends JavaPlugin {
     @Override
     public void onDisable() {
         log.info("Se ha descargado SilverUtilities!");
-    }
-
-    private void saveNewConfig() throws IOException {
-        config.save(configFile);
     }
 
     private void registerCommands() {

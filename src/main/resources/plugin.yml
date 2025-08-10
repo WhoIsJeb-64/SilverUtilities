@@ -26,6 +26,7 @@ permissions:
     description: Grants access to the plugin's basic commands.
     children:
       silverutilities.discord: true
+      silverutilities.colorcodes: true
   silverutilities.staff:
     description: Grants access to the plugin's staff commands.
     children:
